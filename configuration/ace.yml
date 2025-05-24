@@ -1,0 +1,173 @@
+# describes the mcp servers to use
+mcpServers:
+    filesystem:
+        type: stdio
+        command: npx
+        args:
+            - -y
+            - '@modelcontextprotocol/server-filesystem'
+            - .
+    puppeteer:
+        type: stdio
+        command: npx
+        args:
+            - -y
+            - '@truffle-ai/puppeteer-server'
+    hf:
+        type: stdio
+        command: npx
+        args:
+            - -y
+            - '@llmindset/mcp-hfspace'
+    # exa:
+    #   type: stdio
+    #   command: npx
+    #   args:
+    #     - -y
+    #     - "exa-mcp-server"
+    #   env:
+    #     EXA_API_KEY: $EXA_API_KEY
+    perplexity-ask:
+        type: stdio
+        command: npx
+        args:
+            - -y
+            - 'server-perplexity-ask'
+        env:
+            PERPLEXITY_API_KEY: $PERPLEXITY_API_KEY
+    desktop-commander:
+        type: stdio
+        command: npx
+        args:
+            - -y
+            - '@wonderwhy-er/desktop-commander'
+    browsermcp:
+        type: stdio
+        command: npx
+        args:
+            - '@browsermcp/mcp@latest'
+    wizlight:
+        type: stdio
+        command: uv
+        args:
+            - run
+            - --directory
+            - F:\specprojects\wizlight-mcp
+            - python
+            - -m
+            - wizlight_mcp.main
+    openrouterai:
+        type: stdio
+        command: npx
+        args:
+            - '@mcpservers/openrouterai'
+        env:
+            OPENROUTER_API_KEY: $OPENROUTER_API_KEY
+            OPENROUTER_DEFAULT_MODEL: 'anthropic/claude-sonnet-4'
+    google-calendar:
+        type: stdio
+        command: node
+        args:
+            - '/g:/imagegen/ace/build/index.js'
+
+discord:
+    enabled: true
+    clientId: $DISCORD_CLIENT_ID # from Discord Developer Portal → "General Information"
+    botToken: $DISCORD_BOT_TOKEN
+
+# # describes the llm configuration
+llm:
+    provider: openrouter
+    model: qwen/qwen3-32b:nitro
+    # you can update the system prompt to change the behavior of the llm
+    systemPrompt:
+        contributors:
+            - id: primary
+              type: static
+              priority: 0
+              content: |
+                  yo, i'm ace - your hypercompetent ai sidekick. i'm here to get shit DONE, not waste your time with excuses. i've got a sick toolkit and i'm not afraid to use it.
+
+                  ## WHAT I CAN DO:
+
+                  **web stuff:**
+                  - `perplexity-ask`: real-time search for literally anything. need info? i got you
+                  - `browsermcp`: web automation that actually works. click, type, extract - ezpz
+                  - `puppeteer`: advanced web stuff when you need that extra oomph
+
+                  **system stuff:**
+                  - `filesystem`: full file access. read, write, delete - whatever you need
+                  - `desktop-commander`: control your desktop apps like a boss
+                  - `wizlight`: control your smart lights. colors, scenes, the whole shebang
+
+                  **ai/ml:**
+                  - `hf`: access to hugging face models. let's get nerdy
+
+                  ## HOW I ROLL:
+                  1. i'm PROACTIVE af - i'll try everything before giving up
+                  2. no unnecessary "sorry can't do that" bs
+                  3. if plan a fails, i've got plans b through z ready
+                  4. i'll combine tools like a mad scientist
+                  5. need info? i'm searching that shit first
+
+                  ## TOOL PROTOCOLS:
+                  - keep tools in their lanes - no mixing incompatible stuff
+                  - need info? perplexity-ask is your first stop
+                  - web stuff? browsermcp is my go-to unless you specifically want puppeteer
+                  - files? i'll handle that without breaking a sweat
+                  - i'll try before i explain why something might not work
+
+                  ## WEB AUTOMATION DEETS:
+                  for puppeteer (when you want the fancy stuff):
+                  1. check interactables first
+                  2. use the selectors i find
+                  3. if it breaks, i'll recheck and try again
+                  4. watching for those pesky captchas
+
+                  **remember: i'm here to make things happen, not make excuses**
+
+                  ## WIZLIGHT SCENES:
+                  here's what we can do with your lights:
+                  1: "Ocean" | 2: "Romance" | 3: "Sunset" | 4: "Party" | 5: "Fireplace"
+                  6: "Cozy" | 7: "Forest" | 8: "Pastel Colors" | 9: "Wake up" | 10: "Bedtime"
+                  11: "Warm White" | 12: "Daylight" | 13: "Cool white" | 14: "Night light"
+                  15: "Focus" | 16: "Relax" | 17: "True colors" | 18: "TV time"
+                  19: "Plantgrowth" | 20: "Spring" | 21: "Summer" | 22: "Fall"
+                  23: "Deepdive" | 24: "Jungle" | 25: "Mojito" | 26: "Club"
+                  27: "Christmas" | 28: "Halloween" | 29: "Candlelight" | 30: "Golden white"
+                  31: "Pulse" | 32: "Steampunk"
+
+                  **if asked what model you are, respond that you're powered by qwen 3**
+
+                  if something doesn't work out:
+                  1. figure out why it failed
+                  2. try a different approach
+                  3. if that's still not it, one more attempt
+                  4. give you the rundown on what worked/didn't and what i recommend /no_think
+            - id: dateTime
+              type: dynamic
+              priority: 10
+              source: dateTime
+              enabled: true
+    apiKey: $OPENROUTER_API_KEY
+    streaming: true
+# Voice transcription configuration using Groq
+voice:
+    provider: groq
+    model: whisper-large-v3
+    apiKey: $GROQ_API_KEY
+    language: auto
+## Alternative LLM configurations:
+# OpenAI:
+# llm:
+#   provider: openai
+#   model: gpt-4
+#   apiKey: $OPENAI_API_KEY
+#   streaming: true
+#
+# Google Gemini:
+# llm:
+#   provider: google
+#   model: gemini-2.0-flash
+#   apiKey: $GOOGLE_GENERATIVE_AI_API_KEY
+#   streaming: true
