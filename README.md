@@ -9,16 +9,7 @@
 
 Ace was built as a submission to the **Cerebras and OpenRouter hackathon** to explore Qwen's various tool-calling and LLM abilities, featuring streaming support and voice transcription via Groq.
 
-<div align="center">
-  <img src="https://github.com/user-attachments/assets/9a796427-ab97-4c8f-8ac2-09cf58135553" alt="Ace Demo" width="900" />
-</div>
-
 ## Installation
-
-**Global (npm)**
-```bash
-npm install -g @safzanpirani/ace
-```
 
 <details><summary><strong>Build & Link from source</strong></summary>
 
