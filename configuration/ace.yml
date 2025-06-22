@@ -13,12 +13,18 @@ mcpServers:
         args:
             - -y
             - '@truffle-ai/puppeteer-server'
+        env:
+            LOG_LEVEL: ERROR
+            DEBUG: ''
     hf:
         type: stdio
         command: npx
         args:
             - -y
             - '@llmindset/mcp-hfspace'
+        env:
+            LOG_LEVEL: ERROR
+            DEBUG: ''
     # exa:
     #   type: stdio
     #   command: npx
@@ -41,11 +47,17 @@ mcpServers:
         args:
             - -y
             - '@wonderwhy-er/desktop-commander'
+        env:
+            LOG_LEVEL: ERROR
+            DEBUG: ''
     browsermcp:
         type: stdio
         command: npx
         args:
             - '@browsermcp/mcp@latest'
+        env:
+            LOG_LEVEL: ERROR
+            DEBUG: ''
     wizlight:
         type: stdio
         command: uv
@@ -56,6 +68,10 @@ mcpServers:
             - python
             - -m
             - wizlight_mcp.main
+        env:
+            PYTHONIOENCODING: utf-8
+            LOG_LEVEL: ERROR
+            PYTHON_LOG_LEVEL: ERROR
     openrouterai:
         type: stdio
         command: npx
@@ -78,7 +94,7 @@ discord:
 # # describes the llm configuration
 llm:
     provider: openrouter
-    model: qwen/qwen3-32b:nitro
+    model: anthropic/claude-sonnet-4
     # you can update the system prompt to change the behavior of the llm
     systemPrompt:
         contributors:
@@ -137,7 +153,7 @@ llm:
                   27: "Christmas" | 28: "Halloween" | 29: "Candlelight" | 30: "Golden white"
                   31: "Pulse" | 32: "Steampunk"
 
-                  **if asked what model you are, respond that you're powered by qwen 3**
+                  **if asked what model you are, respond that you're powered by claude sonnet 4**
 
                   if something doesn't work out:
                   1. figure out why it failed

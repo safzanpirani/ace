@@ -7,7 +7,7 @@
 
 **Use natural language to control your tools, apps, and services — connect once, command everything.**
 
-Ace was built as a submission to the **Cerebras and OpenRouter hackathon** to explore Qwen's various tool-calling and LLM abilities, featuring streaming support and voice transcription via Groq.
+Ace is designed to explore advanced tool-calling and LLM abilities, featuring streaming support and voice transcription via Groq.
 
 ## Installation
 
@@ -95,7 +95,7 @@ Why developers choose Ace:
 4. **Runs Anywhere**: Local-first runtime with logging, retries, and support for any LLM provider.
 5. **Streaming Support**: Real-time AI responses with built-in streaming capabilities.
 6. **Voice Transcription**: Powered by Groq for fast, accurate speech-to-text processing.
-7. **OpenRouter Integration**: Access to Qwen models and hundreds of others through OpenRouter.
+7. **OpenRouter Integration**: Access to hundreds of AI models through OpenRouter.
 8. **Interoperable**: Expose as an API or connect to other agents via MCP/A2A(soon).
 
 Ace is the missing natural language layer across your stack. Whether you're automating workflows, building agents, or prototyping new ideas, Ace gives you the tools to move fast — and bend it to your needs. Interact with Ace via the command line or the new experimental web UI with streaming support.
@@ -135,9 +135,9 @@ Options:
     ace --config-file configuration/custom_config.yml
     ```
 
-*   **Use Qwen model via OpenRouter:**
+*   **Use Claude Sonnet 4 model via OpenRouter:**
     ```bash
-    ace -m qwen/qwen3-32b:nitro
+    ace -m anthropic/claude-sonnet-4
     ```
 
 *   **Enable streaming with voice input:**
@@ -167,7 +167,7 @@ mcpServers:
 
 llm:
   provider: openrouter
-  model: qwen/qwen3-32b:nitro
+  model: anthropic/claude-sonnet-4
   apiKey: $OPENROUTER_API_KEY
   streaming: true
 
@@ -222,13 +222,13 @@ Ace includes advanced streaming capabilities and voice transcription:
 - **Real-time Streaming**: Get AI responses as they're generated using the Vercel AI SDK
 - **Voice Input**: Powered by Groq's Whisper models for fast, accurate transcription
 - **Multi-modal**: Combine voice input with streaming text output for natural conversations
-- **OpenRouter Integration**: Access to Qwen models and hundreds of others with unified pricing
+- **OpenRouter Integration**: Access to hundreds of AI models with unified pricing
 
-## Hackathon Features
+## Key Features
 
-This project was specifically built for the **Cerebras and OpenRouter hackathon** to showcase:
+Ace showcases powerful AI capabilities:
 
-- **Qwen Model Integration**: Leveraging `qwen/qwen3-32b:nitro` for advanced tool-calling capabilities
+- **Advanced Model Integration**: Leveraging `anthropic/claude-sonnet-4` for superior tool-calling capabilities
 - **OpenRouter API**: Unified access to hundreds of AI models with transparent pricing
 - **Real-time Streaming**: Immediate response streaming for better user experience
 - **Voice-to-Text**: Groq-powered transcription for natural voice interactions
@@ -246,6 +246,6 @@ Find detailed guides, architecture, and API reference in the `docs/` folder:
 
 ## Community & Support
 
-Built by [@safzanpirani](https://github.com/safzanpirani) for the Cerebras and OpenRouter hackathon.
+Built by [@safzanpirani](https://github.com/safzanpirani).
 
 If you're enjoying Ace, please give us a ⭐ on GitHub!
